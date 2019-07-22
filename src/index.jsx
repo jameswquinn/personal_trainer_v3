@@ -6,7 +6,7 @@ import AsyncRoute from 'preact-async-route';
 
 import "./index.css";
 
-import Home from "./Components/Home/Home";
+import Home from "./pages/home";
 
 const NODE = document.body.querySelector("#root");
 let new_scroll_position = 0;
@@ -95,9 +95,17 @@ const App = () => (
       <AsyncRoute
         path="/about"
         getComponent={() =>
-          import('./Components/About/About.jsx').then(module => module.default)
+          import('./pages/about').then(module => module.default)
         }
       />
+      <AsyncRoute
+        path="/profile/:optional?/:params?"
+        getComponent={() =>
+          import('./pages/profile').then(module => module.default)
+        }
+      />
+
+
       <Error type="404" default />
     </Router>
   </div>
