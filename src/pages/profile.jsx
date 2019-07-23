@@ -7,6 +7,7 @@ import PlayerAPI from "../api";
 
 export default class Terms extends Component {
   componentDidMount() {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     const observer = lozad(".lazy", {
       loaded: function (el) {
         // Custom implementation on a loaded element

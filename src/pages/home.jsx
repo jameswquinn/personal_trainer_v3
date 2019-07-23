@@ -4,8 +4,10 @@ import Helmet from "preact-helmet";
 import * as timeago from "timeago.js";
 import lozad from "lozad";
 
+
 export default class Home extends Component {
   componentDidMount() {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
     const observer = lozad(".lazy", {
       loaded: function (el) {
         el.classList.add("is-loaded");
@@ -64,7 +66,7 @@ export default class Home extends Component {
           </div>
         
         <img
-          style="z-index:-1"
+          //style="z-index:-1"
           class="lazy"
           data-sizes="auto"
           src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 650 300'%3E%3C/svg%3E"

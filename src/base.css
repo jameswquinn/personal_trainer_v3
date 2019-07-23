@@ -1,7 +1,7 @@
 
 /* Image */
 
-img {
+img[data-sizes="auto"] {
   display: block;
   width: 100%;
 }
@@ -17,6 +17,6 @@ img {
 
 /* Utility */
 
-.container {
-    margin: 0 0 var(--navigation-height) 0;
+main{
+    margin: 0% 0% var(--navigation-height) 0%;
 }

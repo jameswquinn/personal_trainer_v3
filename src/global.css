@@ -142,9 +142,9 @@ a.active {
 }
 
 main {
-  -webkit-animation: fade-in calc(var(--animation-duration) * 6)
+  -webkit-animation: fade-in calc(var(--animation-duration) * 5)
     cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  animation: fade-in calc(var(--animation-duration) * 6)
+  animation: fade-in calc(var(--animation-duration) * 5)
     cubic-bezier(0.39, 0.575, 0.565, 1) both;
 }
 
@@ -174,3 +174,11 @@ main {
     opacity: 1;
   }
 }
+
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
