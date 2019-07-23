@@ -28,10 +28,10 @@ export default class About extends Component {
 
   render() {
     return (
-      <main>
-        <h3>Meet the instructors</h3>
+      <main class="container">
+        <h2>Meet the instructors</h2>
         <Helmet title="My Title Hay James Yet Another Page" />
-        <h3>Our mission is to get you full body fit through varied, complementary classes all synced to the best music. </h3>
+        <p>Our mission is to get you full body fit through varied, complementary classes all synced to the best music. </p>
         {PlayerAPI.all().map(item => (
           <figure key={item.id} >
             <figcaption>
@@ -40,7 +40,7 @@ export default class About extends Component {
             </figcaption>
             <Link href={`/profile?q=${item.id}`}>
             <img
-                class="lazy z-depth-3"
+              class="lazy"
               data-sizes="auto"
               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1 1'%3E%3C/svg%3E"
               data-srcset={item.image.srcSet}

@@ -26,7 +26,7 @@ export default class Terms extends Component {
   render({ url, q }) {
     let item = PlayerAPI.get(parseInt(q));
     return (
-      <main>
+      <main class="container">
         <Helmet title="My Title Hay James Yet Another Page" />        
         <figure>
           <img
