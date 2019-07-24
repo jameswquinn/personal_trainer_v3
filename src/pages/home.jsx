@@ -33,13 +33,13 @@ export default class Home extends Component {
 
     */
     const imgSrc = document
-      .querySelector(".video-header video")
+      .querySelector("#intro__bg-video")
       .getAttribute("poster");
 
     // Remove video if connection is cellular
     if (preloadVideo) {
       // Remove src & replace with data-src attribute
-      const elem = document.querySelector(".video-header video");
+      const elem = document.querySelector("#intro__bg-video");
       elem.parentNode && elem.parentNode.removeChild(elem);
       const elemImg = document.querySelector(".video-header");
       let image = new Image();
@@ -47,7 +47,7 @@ export default class Home extends Component {
       image.alt = "#";
       elemImg.appendChild(image);
     } else {
-      document.getElementById("intro__bg-video").play();
+      document.querySelector("#intro__bg-video").play();
     }
 
     window.addEventListener("scroll", this.handleOpacity);
