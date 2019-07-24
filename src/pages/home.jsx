@@ -16,15 +16,48 @@ export default class Home extends Component {
       threshold: 0.4
     });
     observer.observe();
+    let preloadVideo = false;
+    var connection =
+      navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    if (connection) {
+      if (connection.effectiveType === "wifi") {
+        preloadVideo = true;
+      }
+    }
+   
+   /*
+    let preloadVideo = false;
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+      preloadVideo = true;
+    } 
+
+    */
+    const imgSrc = document
+      .querySelector(".video-header video")
+      .getAttribute("poster");
+
+    // Remove video if connection is cellular
+    if (preloadVideo) {
+      // Remove src & replace with data-src attribute
+      const elem = document.querySelector(".video-header video");
+      elem.parentNode && elem.parentNode.removeChild(elem);
+      const elemImg = document.querySelector(".video-header");
+      let image = new Image();
+      image.src = imgSrc;
+      image.alt = "#";
+      elemImg.appendChild(image);
+    } else {
+      document.getElementById("intro__bg-video").play();
+    }
+
     window.addEventListener("scroll", this.handleOpacity);
     window.addEventListener('scroll', this.handleParallax);
-    document.getElementById("intro__bg-video").play();
+    
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.handleOpacity);
     window.removeEventListener('scroll', this.handleParallax);
-    document.getElementById("intro").pause();
   }
 
   handleParallax = () => {
@@ -50,12 +83,12 @@ export default class Home extends Component {
         <Helmet title="My Title Hay James" />
         <header class="video-header">
           <video id="intro__bg-video" src={require("../video/intro2.mp4")} autoplay loop playsinline muted poster="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="></video>
-          <div class="viewport-header viewport-header__transform">
+         
             
     
             <div data-opacity="100" class="masthead-arrow"></div>
            
-          </div>
+      
         </header>
 
        
