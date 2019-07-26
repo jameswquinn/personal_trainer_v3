@@ -16,6 +16,7 @@ export default class Home extends Component {
       threshold: 0.4
     });
     observer.observe();
+    /*
     let preloadVideo = false;
     var connection =
       navigator.connection || navigator.mozConnection || navigator.webkitConnection;
@@ -24,14 +25,15 @@ export default class Home extends Component {
         preloadVideo = true;
       }
     }
+   */
+  //let supportsVideo = (typeof(elem.canPlayType) != 'undefined') ? true : false;
    
-   /*
     let preloadVideo = false;
     if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
       preloadVideo = true;
     } 
 
-    */
+    
     const imgSrc = document
       .querySelector("#intro__bg-video")
       .getAttribute("poster");
